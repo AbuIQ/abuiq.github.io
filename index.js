@@ -1,3 +1,4 @@
+// import G6 from '@antv/g6';
 
 const COLLAPSE_ICON = function COLLAPSE_ICON(x, y, r) {
   return [[ 'M', x, y ], [ 'a', r, r, 0, 1, 0, r * 2, 0 ], [ 'a', r, r, 0, 1, 0, -r * 2, 0 ], [ 'M', x + 2, y ], [ 'L', x + 2 * r - 2, y ]];
@@ -21,7 +22,8 @@ G6.registerNode('tree-node', {
         y: 0,
         textAlign: 'left',
         textBaseline: 'middle',
-        fill: '#666'
+        fill: '#666',
+        fontSize: 20,
       }
     });
     const bbox = text.getBBox();
@@ -30,10 +32,10 @@ G6.registerNode('tree-node', {
       group.addShape('marker', {
         attrs: {
           x: bbox.maxX + 6,
-          y: bbox.minX + bbox.height / 2 - 6,
+          y: bbox.minX + bbox.height / 2 - 10,
           r: 6,
           symbol: COLLAPSE_ICON,
-          stroke: '#666',
+          stroke: '#add8e6',
           lineWidth: 2
         },
         className: 'collapse-icon'
@@ -43,7 +45,7 @@ G6.registerNode('tree-node', {
       x: bbox.minX - 4,
       y: bbox.minY - 6,
       width: bbox.width + (hasChildren ? 26 : 8),
-      height: bbox.height + 12
+      height: bbox.height + 10
     });
     return rect;
   }
@@ -51,7 +53,7 @@ G6.registerNode('tree-node', {
 
 
 const width = document.getElementById('container').scrollWidth;
-const height = document.getElementById('container').scrollHeight || 500;
+const height = document.getElementById('container').scrollHeight || 1000;
 const graph = new G6.TreeGraph({
   container: 'container',
   width,
@@ -92,10 +94,10 @@ const graph = new G6.TreeGraph({
       return 16;
     },
     getWidth: function getWidth() {
-      return 16;
+      return 20;
     },
     getVGap: function getVGap() {
-      return 20;
+      return 25;
     },
     getHGap: function getHGap() {
       return 80;
