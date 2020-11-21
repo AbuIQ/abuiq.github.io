@@ -11,7 +11,7 @@ G6.registerNode('tree-node', {
     const rect = group.addShape('rect', {
       attrs: {
         fill: '#fff',
-        stroke: '#666'
+        stroke: '#003366'
       }
     });
     const content = cfg.name.replace(/(.{19})/g, '$1\n');
@@ -22,8 +22,8 @@ G6.registerNode('tree-node', {
         y: 0,
         textAlign: 'left',
         textBaseline: 'middle',
-        fill: '#666',
-        fontSize: 20,
+        fill: '#000000',
+        fontSize: 18,
       }
     });
     const bbox = text.getBBox();
@@ -94,10 +94,10 @@ const graph = new G6.TreeGraph({
       return 16;
     },
     getWidth: function getWidth() {
-      return 20;
+      return 25;
     },
     getVGap: function getVGap() {
-      return 25;
+      return 30;
     },
     getHGap: function getHGap() {
       return 80;

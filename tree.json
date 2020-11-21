@@ -1,8 +1,10 @@
 {
   "name": "عوامل النحو",
+  "collapsed": true,
   "children": [
     {
       "name": "اللفظية" ,
+      "collapsed": true,
       "children": [
         {
           "name": "السماعية" ,
@@ -24,6 +26,7 @@
         },
         { 
           "name": "القياسية" ,
+          "collapsed": true,
           "children": [
             {
                "name": "الفعل مطلقًا" 
