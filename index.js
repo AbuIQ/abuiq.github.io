@@ -28,6 +28,7 @@ G6.registerNode('tree-node', {
     });
     const bbox = text.getBBox();
     const hasChildren = cfg.children && cfg.children.length > 0;
+
     if (hasChildren) {
       group.addShape('marker', {
         attrs: {
@@ -52,8 +53,8 @@ G6.registerNode('tree-node', {
 }, 'single-shape');
 
 
-const width = document.getElementById('container').scrollWidth;
-const height = document.getElementById('container').scrollHeight || 500;
+const width = screen.availWidth;
+const height = screen.availHeight || 500;
 const graph = new G6.TreeGraph({
   container: 'container',
   width,
@@ -91,16 +92,16 @@ const graph = new G6.TreeGraph({
       return d.id;
     },
     getHeight: function getHeight() {
-      return 16;
-    },
-    getWidth: function getWidth() {
       return 25;
     },
+    getWidth: function getWidth() {
+      return 40;
+    },
     getVGap: function getVGap() {
-      return 30;
+      return 20;
     },
     getHGap: function getHGap() {
-      return 80;
+      return 100;
     }
   }
 });
