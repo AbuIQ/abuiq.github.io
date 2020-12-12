@@ -53,8 +53,8 @@ G6.registerNode('tree-node', {
 }, 'single-shape');
 
 
-const width = screen.availWidth;
-const height = screen.availHeight || 500;
+const width = container.scrollWidth;
+const height = container.scrollHeight || 500;
 const graph = new G6.TreeGraph({
   container: 'container',
   width,
@@ -116,4 +116,11 @@ fetch('tree.json')
     graph.data(data);
     graph.render();
     graph.fitView();
+
+    if (typeof window !== 'undefined')
+      window.onresize = () => {
+        if (!graph || graph.get('destroyed')) return;
+        if (!container || !container.scrollWidth || !container.scrollHeight) return;
+        graph.changeSize(container.scrollWidth, container.scrollHeight);
+      };
   });
