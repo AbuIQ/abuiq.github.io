@@ -17,7 +17,7 @@ G6.registerNode('tree-node', {
     const content = cfg.name.replace(/(.{19})/g, '$1\n');
     const text = group.addShape('text', {
       attrs: {
-        text: content,
+        text: cfg.id,
         x: 0,
         y: 0,
         textAlign: 'left',
