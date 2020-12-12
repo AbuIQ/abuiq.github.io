@@ -94,8 +94,10 @@ const graph = new G6.TreeGraph({
     getHeight: function getHeight() {
       return 25;
     },
-    getWidth: function getWidth() {
-      return 40;
+    getWidth: function getWidth(d) {
+      console.log(d.id)
+      console.log(d.id.length)
+      return (d.id.length > 22 ? (d.id.length > 36 ? d.id.length + 80 : d.id.length + 50) : 0);
     },
     getVGap: function getVGap() {
       return 20;
